@@ -20,12 +20,11 @@ int checkLine(t_bsq *obj, char *line, int prevLen)
     currLen = ft_strlen(line);
 
     if (prevLen && prevLen != currLen)
-        return printf("PrevLen: %d, currLen: %d\n", prevLen, currLen),1;
-    // printf("Full :>%c< | Empty :>%c< | Obstacle :>%c<",obj->full, obj->empty, obj->obstacle );
+        return 1;
     while (line[i])
     {
         if (( line[i] != obj->obstacle  && line[i] != obj->empty ))
-            return( printf("Here, line[%d]: >%c<\n", i,line[i]), 1);
+            return( 1);
         i++;
     }
     return 0;
@@ -60,7 +59,6 @@ int init(t_bsq *obj , FILE *fd)
         i++;
     }
     obj->mapWidth = prevLen;
-    printf("Map WIdth : %d\n", obj->mapWidth);
     obj->map[i] = NULL;
     free(line);
     return 0;

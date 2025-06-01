@@ -53,15 +53,15 @@ int parse(t_bsq *obj, FILE *fd)
 
     readed = getline(&line,&len, fd);
     if (readed <= 0 || checkFirstLine(line, obj))
-        return (fprintf(stderr,"First Line Problem\n"), free(line), 1);    
+        return (free(line), 1);    
     free(line);
     line = NULL;
     initRet = init(obj, fd);
     if (initRet)
-        return (fprintf(stderr, "Init Problem , ret:%d\n", initRet),1);
+        return (1);
     int check = checkObstacles(obj); 
     if (check)
         return 1;
-    printf("Parse ALL GOOOD, Check Status%d\n", check);
+    // printf("Parse ALL GOOOD, Check Status%d\n", check);
     return 0;
 }

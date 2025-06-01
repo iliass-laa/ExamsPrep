@@ -37,10 +37,8 @@ void coreBsq(t_bsq *obj)
             }
             else
                 obj->padMap[i+1][j+1] = 0;
-            // printf(" %d ",obj->padMap[i+1][j+1]);
             j++;
         }
-            // printf("\n");
         i++;
     }
 }
@@ -90,14 +88,10 @@ void findBsq(char *path)
     else
     {
         coreBsq(&obj);
-        
-        printf("FindBsq All Good\n");
-        // printPadMap(&obj, obj.padMap);
-        printf("i :%d, j %d, biggestSideL:%d\n", obj.i, obj.j, obj.biggestSide);
         reWriteMap(&obj);
+        printMap(obj.map);
     }   
     freeMyObj(&obj);
-    // printBsq(obj);
 }
 
 
